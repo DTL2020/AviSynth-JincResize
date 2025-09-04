@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "avisynth_c.h"
-#include "avs/minmax.h"
+#include "avs\minmax.h"
 
 struct EWAPixelCoeffMeta
 {
@@ -50,6 +50,8 @@ struct JincResize
     void resize_plane_sse41(AVS_VideoFrame* src, AVS_VideoFrame* dst, AVS_VideoInfo* vi);
     template <typename T, int thr, int subsampled>
     void resize_plane_avx2(AVS_VideoFrame* src, AVS_VideoFrame* dst, AVS_VideoInfo* vi);
+    template <typename T, int thr, int subsampled>
+    void resize_3planes_avx2(AVS_VideoFrame* src, AVS_VideoFrame* dst, AVS_VideoInfo* vi);
     template <typename T, int thr, int subsampled>
     void resize_plane_avx512(AVS_VideoFrame* src, AVS_VideoFrame* dst, AVS_VideoInfo* vi);
 
